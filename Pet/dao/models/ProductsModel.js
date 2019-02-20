@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 const productsSchema = new mongoose.Schema({
   name: String,    //名称
   kind: String,     //品质
-  texture: String,          //材质或制作方法 
+  texture: {                    //材质或制作方法
+    type:String,               
+    default:null
+  },           
   applicable:String,         //适用规格
   exclusive:String,           //专属  
   packaging:String,           //包装
@@ -18,7 +21,10 @@ const productsSchema = new mongoose.Schema({
   },        
   origin:String,                //产地
   birthday:String,             //生产日期
-  expiration:String,             //保质期
+  expiration:{                    //保质期
+    type:String,               
+    default:null
+  },             
   price:String,                    //价格
   picture:Array,                 //图片
 })
