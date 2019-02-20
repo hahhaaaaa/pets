@@ -9,6 +9,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products')
 var filesRouter = require('./routes/files')
+var petsRouter = require('./routes/pets')
+var serviceRouter = require('./routes/serviceRou')
+
 
 
 require('./dao/database')
@@ -28,8 +31,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/files', filesRouter);
-
-
+app.use('/pets',petsRouter)
+app.use('/serviceRou',serviceRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

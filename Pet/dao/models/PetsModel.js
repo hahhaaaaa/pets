@@ -8,11 +8,11 @@ const petsSchema = new mongoose.Schema({
     character:String,//宠物性格
     petstate:{type: String, default: '0'},//状态值
     petphotos:{type: String, default: '0'},//照片路径
-    storeCityId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'storeModel',
-    },//绑定的门店
-    petsprice:String //宠物价格
+    // storeCityId:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:'storeModel',
+    // },//绑定的门店
+    petsprice:{type: String, default: '0'} //宠物价格
 })
 mongoose.model("petsModel", petsSchema, "petsManage");
 module.exports.petsModel=mongoose.model("petsModel");

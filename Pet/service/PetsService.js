@@ -1,6 +1,7 @@
 const {
     addPets,
-    getPetsBypage
+    getPetsBypage,
+    getdelete
  } = require('../dao/petsDao');
   
  module.exports.getPetsBypage = async function (data) {
@@ -11,3 +12,6 @@ const {
      return await addPets(service);
  };
 
+ module.exports.getdelete = async function (data) {
+    return await getdelete(data);
+};
