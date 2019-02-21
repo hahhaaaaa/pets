@@ -1,7 +1,7 @@
 const {storeModel}=require('./models/StoreModel');
 
 //查询
-module.exports.storeList =async function({start=0,count=10,name,value}){
+module.exports.storeList =async function({start=0,count=10,name,value,userID}){
     //数字类型的可以转换为纯数字
     const result={
         start:~~start,
@@ -16,7 +16,7 @@ module.exports.storeList =async function({start=0,count=10,name,value}){
     //queryData[name] = {$regex:value};
     result.total=await storeModel.count(queryData)
     result.totalPage=Math.ceil(result.total/result.count);
-    result.rows= await storeModel.find(queryData)
+    result.rows= await storeModel.find(queryData,userID)
     .skip((result.start-1)*result.count)
     .limit(result.count)
     .exec()
@@ -55,7 +55,9 @@ module.exports.deleteStore=async function(data){
 //  .limit(result.count)
 //  return result;
 // }
-
+module.exports.findPet=async function(UserID){
+  return await storeModel.find(UserID,{_id:1,sotreTitle:1})
+}
 //按照地址查询
 module.exports.searchAddress=async function({storeAddress}){
   return await storeModel.find({storeAddress:{$regex:storeAddress}},{storeAddress:1})

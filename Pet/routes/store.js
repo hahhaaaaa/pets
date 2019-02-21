@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {storeList,addStore,updateStore,deleteStore,searchStore,searchAddress}=require('../service/storeService')
+const {storeList,addStore,updateStore,deleteStore,searchStore,searchAddress,findPet}=require('../service/storeService')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -36,5 +36,8 @@ router.get('/getAddress',async function(req,res,next){
    console.log(data);
     res.send(data)
    //letdata searchAddress(req.body)
+})
+router.get('/findPet',async function(req,res,next){
+    send(await findPet(req,query))
 })
 module.exports = router;

@@ -40,5 +40,8 @@ module.exports. getdelete=async function({_id}){
   return await petsModel.remove({_id})
 }
 
-
+module.exports.revisePets = async function (data) {
+  let {_id,...resat} = data
+  return await petsModel.update({_id},resat);
+}
 

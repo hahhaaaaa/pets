@@ -1,7 +1,8 @@
 const {
     addPets,
     getPetsBypage,
-    getdelete
+    getdelete,
+    revisePets
  } = require('../dao/petsDao');
   
  module.exports.getPetsBypage = async function (data) {
@@ -14,4 +15,8 @@ const {
 
  module.exports.getdelete = async function (data) {
     return await getdelete(data);
+};
+
+module.exports.revisePets = async function (data) {
+    return await revisePets(data);
 };
