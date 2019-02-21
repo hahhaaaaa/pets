@@ -5,13 +5,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products')
 var filesRouter = require('./routes/files')
 var petsRouter = require('./routes/pets')
 var serviceRouter = require('./routes/serviceRou')
-
+const session=require('express-session');
 var usersRouter = require('./routes/users');
 var storeRouter=require('./routes/store')
 var qiniu=require('./routes/qiniu')
@@ -56,10 +57,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 app.use(session({
-  //µÇÂ½×´Ì¬²éÑ¯
+  //ï¿½ï¿½Â½×´Ì¬ï¿½ï¿½Ñ¯
   secret:'asda',
   resave:'true',
-  saveUninitialized:true //Ò²ÊÇ±£´æ
-}))//µÇÂ½×´Ì¬¼ÇÂ¼¼ÓÃÜ
+  saveUninitialized:true //Ò²ï¿½Ç±ï¿½ï¿½ï¿½
+}))//ï¿½ï¿½Â½×´Ì¬ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 
 module.exports = app;
