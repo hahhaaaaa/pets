@@ -11,7 +11,7 @@ router.post('/login', async function(req,res,next){
    let data=await userLogin(req.body);
    //console.log(data);
    if(data.length>0){
-     req.session.user=data;
+    //  req.session.user=data;
      res.send({msg:true,data})
    }else{
      res.send({msg:false})

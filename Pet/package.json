@@ -12,11 +12,12 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "mongoose": "^5.4.6",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
     "qiniu": "^7.2.1"
-    "http-errors": "~1.6.2",
   },
   "devDependencies": {
-    "busboy": "^0.3.0"
+    "busboy": "^0.3.0",
+    "express-session": "^1.15.6",
+    "session": "^0.1.0"
   }
 }

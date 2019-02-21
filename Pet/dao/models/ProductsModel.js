@@ -38,6 +38,10 @@ const productsSchema = new mongoose.Schema({
   } ,       
   price:String,                    //价格
   picture:Object,                 //图片
+  userID:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'userModel'
+  }
 })
 mongoose.model('productsModel', productsSchema, 'products');
 module.exports.productsModel = mongoose.model('productsModel');
