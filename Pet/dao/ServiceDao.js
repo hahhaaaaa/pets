@@ -60,7 +60,6 @@ module.exports.updateAdmin = async function ({_id,name,password,phone}) {
 }
 module.exports.upDateLogin = async function ({_id,state}) {
     console.log(state);
-    
     return await AdminModel.update({_id},{state});
 }
 
