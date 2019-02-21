@@ -12,7 +12,9 @@ var filesRouter = require('./routes/files')
 var petsRouter = require('./routes/pets')
 var serviceRouter = require('./routes/serviceRou')
 
-
+var usersRouter = require('./routes/users');
+var storeRouter=require('./routes/store')
+var qiniu=require('./routes/qiniu')
 
 require('./dao/database')
 
@@ -33,7 +35,11 @@ app.use('/products', productsRouter);
 app.use('/files', filesRouter);
 app.use('/pets',petsRouter)
 app.use('/serviceRou',serviceRouter)
+app.use('/users', usersRouter);
 
+app.use('/store',storeRouter)
+
+app.use('/token',qiniu)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -49,5 +55,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+app.use(session({
+  //µÇÂ½×´Ì¬²éÑ¯
+  secret:'asda',
+  resave:'true',
+  saveUninitialized:true //Ò²ÊÇ±£´æ
+}))//µÇÂ½×´Ì¬¼ÇÂ¼¼ÓÃÜ
 
 module.exports = app;
