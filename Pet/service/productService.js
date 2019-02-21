@@ -1,5 +1,5 @@
 const {
-    addCommodity,getCommodity,removeCommodity
+    addCommodity,getCommodity,removeCommodity,updataCommodity
  } = require('../dao/ProductDao');
 
 
@@ -15,4 +15,9 @@ module.exports.getCommodity = async function (data) {
 
 module.exports.removeCommodity = async function (data) {
     return await removeCommodity(data);
+};
+
+
+module.exports.updataCommodity = async function (data) {
+    return await updataCommodity(data);
 };

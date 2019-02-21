@@ -13,6 +13,11 @@ module.exports.removeCommodity = async function (_id) {
     return await productsModel.remove({_id})
 }
 
+module.exports.updataCommodity = async function (data) {
+    let {_id,...resat} = data
+    return await productsModel.update({_id},resat)
+}
+
 
 module.exports.getCommodity = async function ({pageSize,eachPage}) {
     pageSize = parseInt(pageSize);

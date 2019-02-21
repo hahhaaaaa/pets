@@ -20,13 +20,24 @@ const productsSchema = new mongoose.Schema({
     default:null
   },        
   origin:String,                //产地
-  birthday:String,             //生产日期
+  weight:{                       //毛重
+    type:String,               
+    default:null
+  },
   expiration:{                    //保质期
     type:String,               
     default:null
-  },             
+  },
+  size:{                         //尺码
+    type:String,               
+    default:null
+  },     
+  colour:{                    //颜色
+    type:String,               
+    default:null
+  } ,       
   price:String,                    //价格
-  picture:Array,                 //图片
+  picture:Object,                 //图片
 })
 mongoose.model('productsModel', productsSchema, 'products');
 module.exports.productsModel = mongoose.model('productsModel');

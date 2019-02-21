@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {
-  addCommodity,getCommodity,removeCommodity
+  addCommodity,getCommodity,removeCommodity,updataCommodity
 } = require('../service/productService');
 
 
@@ -11,8 +11,8 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/addcommodity', async function(req, res, next) {
-    res.send(await  addCommodity(req.query)) 
+router.post('/addcommodity', async function(req, res, next) {
+    res.send(await  addCommodity(req.body)) 
 });
 
 
@@ -24,6 +24,10 @@ router.get('/getCommodity', async function(req, res, next) {
 
 router.get('/removeCommodity', async function(req, res, next) {
   res.send(await  removeCommodity(req.query)) 
+});
+
+router.post('/updataCommodity', async function(req, res, next) {
+  res.send(await  updataCommodity(req.body)) 
 });
 
 module.exports = router;
