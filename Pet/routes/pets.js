@@ -19,6 +19,7 @@ router.get('/getPetsBypage', async function (req, res, next) {
 });
 
 router.get('/getdelete', async function (req, res, next) {
+    
     res.send(await getdelete(req.query));
 });
 

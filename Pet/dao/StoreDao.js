@@ -56,7 +56,8 @@ module.exports.deleteStore=async function(data){
 //  return result;
 // }
 module.exports.findPet=async function(UserID){
-  return await storeModel.find(UserID,{_id:1,sotreTitle:1})
+  let liebiao= await storeModel.find(UserID,{_id:1,storeTitle:1})
+  return {liebiao}
 }
 //按照地址查询
 module.exports.searchAddress=async function({storeAddress}){

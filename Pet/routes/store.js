@@ -31,13 +31,11 @@ router.post('/search',async function(req,res,next){
 })
 
 router.get('/getAddress',async function(req,res,next){
-    console.log(req.query)
-   let data=await searchAddress(req.query)
-   console.log(data);
+   let data=await searchAddress(req.query);
     res.send(data)
-   //letdata searchAddress(req.body)
+   
 })
 router.get('/findPet',async function(req,res,next){
-    send(await findPet(req,query))
+    res.send(await findPet(req.query))
 })
 module.exports = router;
