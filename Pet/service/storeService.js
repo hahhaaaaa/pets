@@ -1,4 +1,4 @@
-const {storeList,addStore,updateStore,deleteStore,searchStore,searchAddress,findPet}= require('../dao/StoreDao')
+const {storeList,addStore,updateStore,deleteStore,searchStore,searchAddress,findPet,storeNoList,addressList,Isupdate}= require('../dao/StoreDao')
 module.exports.storeList=async function(data){
     return await storeList(data)
 }
@@ -20,4 +20,12 @@ module.exports.searchAddress=async function(data){
 module.exports.findPet=async function(data){
     return await findPet(data)
 }
-
+module.exports.storeNoList=async function(data){
+    return await storeNoList(data)
+}
+module.exports.addressList=async function(data){
+    return await addressList(data)
+}
+module.exports.Isupdate=async function (data){
+    return await Isupdate(data)
+}

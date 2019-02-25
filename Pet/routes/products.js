@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {
-  addCommodity,getCommodity,removeCommodity,updataCommodity
+  addCommodity,getCommodity,removeCommodity,updataCommodity,getkind
 } = require('../service/productService');
 
 
@@ -29,5 +29,8 @@ router.get('/removeCommodity', async function(req, res, next) {
 router.post('/updataCommodity', async function(req, res, next) {
   res.send(await  updataCommodity(req.body)) 
 });
+router.get('/getkind',async function(req,res,next){
+  res.send(await getkind())
+})
 
 module.exports = router;

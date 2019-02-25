@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 
 var indexRouter = require('./routes/index');
+
 // var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products')
 var filesRouter = require('./routes/files')
@@ -29,6 +30,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({ //登陆状态查询
+  secret:'asda',  //随意写
+  resave:true,  //保存
+  saveUninitialized:true //也是保存
+}))//登陆状态记录加密的
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -57,11 +65,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.use(session({
-  //��½״̬��ѯ
-  secret:'asda',
-  resave:'true',
-  saveUninitialized:true //Ҳ�Ǳ���
-}))//��½״̬��¼����
+
 
 module.exports = app;

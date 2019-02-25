@@ -12,6 +12,32 @@ module.exports.userLogin=async function(data){
  return  await user.find(data).exec()
   
 }
+module.exports.getUserBypage = async function ({currentPage,eachPage,type,text}) {
+    // eachPage 每页显示总条数    
+    //currentPage当前页码 
+    // totalPage 总页数 
+    //count 总条数
+    currentPage=currentPage-0;
+    eachPage=eachPage-0;
+    let queryData={};
+    if(type&&text){
+        queryData[type]={$regex:decodeURI(text)}
+    }
+
+    let count= await user.find({...queryData,userType:'0'});//总条数
+    count= count.length;
+    totalPage=Math.ceil(count/eachPage)// 总页数
+    let rows = await user.find({...queryData,userType:'0'})   //查找所有数据
+    //  .populate("classId")              //关联查询，通过关联的id
+    .skip((currentPage-1)*eachPage) //跳过查找
+    .limit(eachPage)               //查找内容
+
+    return{currentPage,eachPage,totalPage,count,rows}
+}  
+
+//用户列表
 
 // 修改
+
+//用户注册
 
