@@ -17,7 +17,11 @@ const ServiceSchema = new mongoose.Schema({
     isShelve:{
         type:Boolean,
         default:true
-    } //上架或下架
+    }, //上架或下架
+    store:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'storeModel'
+    }
 })
 
 mongoose.model("ServiceModel", ServiceSchema, "Service");

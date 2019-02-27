@@ -16,6 +16,8 @@ router.post('/upDateService', async function (req, res, next) {
 });
 
 router.get('/getServiceBypage', async function (req, res, next) {
+    console.log(await getServiceBypage(req.query));
+    
     res.send(await getServiceBypage(req.query));
 });
 

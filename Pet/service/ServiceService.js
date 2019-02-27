@@ -21,7 +21,9 @@ const {
      service,
      time,
      waiter,
-     price},{eachPage},{currentPage},{count},{totalPage}]) {
+     price,
+     store,
+    },{eachPage},{currentPage},{count},{totalPage}]) {
          
      const success= await addService({name,
          img,
@@ -35,7 +37,9 @@ const {
          service,
          time,
          waiter,
-         price});
+         price,
+         store,
+         });
      if(success._id){
          if(count%eachPage===0){
              currentPage=totalPage+1;
